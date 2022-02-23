@@ -55,6 +55,10 @@ spec:
         {{- end }}
     {{- if not (empty .Values.server.web_fqdn) }}
     host: {{ .Values.server.web_fqdn }}
+  tls:
+  - hosts:
+    - {{ .Values.server.web_fqdn }}
+    secretName: wildcard-cert    
     {{- end }}
   {{- end }}
 ...
